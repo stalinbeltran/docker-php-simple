@@ -95,3 +95,7 @@ docker run -it sbeltran2006/phpsimple sh
 (hallé que el contenido no es el correcto. Directorio actual equivocado)
 
 11. Al cambiar en CMD al directorio para este proyecto, se corrige el problema.
+12. Probamos a crear el container, y probamos accesar desde el browser:
+docker run -d --name phpsimple --rm sbeltran2006/phpsimple
+(se crea container, pero no es accesible desde el browser)
+
