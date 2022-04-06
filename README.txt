@@ -88,7 +88,10 @@ C:\desarrollo\docker-curriculum\flask-app>docker build -t sbeltran2006/phpsimple
 COPY . .
 9. Probar la creación de imagen:
 docker build -t sbeltran2006/phpsimple .
+(funciona)
 
-
+10. Verificar el contenido de la imagen.
+docker run -it sbeltran2006/phpsimple sh
+(hallé que el contenido no es el correcto. Directorio actual equivocado)
 
 
