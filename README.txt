@@ -61,3 +61,25 @@ prakhar1989/static-site        latest          f01030e1dcf3   6 years ago    134
 FROM php:8.0.12-apache
 6. Setear directorio de trabajo:
 WORKDIR /usr/src/app
+7. Probar creación de imagen empleando Dockerfile:
+docker build -t sbeltran2006/phpsimple .
+
+
+C:\desarrollo\docker-curriculum\flask-app>docker build -t sbeltran2006/phpsimple .
+[+] Building 3.0s (10/10) FINISHED
+ => [internal] load build definition from Dockerfile                                                               0.1s
+ => => transferring dockerfile: 32B                                                                                0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/python:3                                                        2.7s
+ => [auth] library/python:pull token for registry-1.docker.io                                                      0.0s
+ => [1/4] FROM docker.io/library/python:3@sha256:555f5affd32250ca74758b297f262fa8f421eb0102877596b48c0b8b464606ea  0.0s
+ => [internal] load build context                                                                                  0.0s
+ => => transferring context: 200B                                                                                  0.0s
+ => CACHED [2/4] WORKDIR /usr/src/app                                                                              0.0s
+ => CACHED [3/4] COPY . .                                                                                          0.0s
+ => CACHED [4/4] RUN pip install --no-cache-dir -r requirements.txt                                                0.0s
+ => exporting to image                                                                                             0.0s
+ => => exporting layers                                                                                            0.0s
+ => => writing image sha256:25d692d6c07a313738b41fc9341382e5369613b2f2db6df629c9acedc2bda7a4                       0.0s
+ => => naming to docker.io/sbeltran2006/phpsimple                                                                  0.0s
