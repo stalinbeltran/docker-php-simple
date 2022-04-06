@@ -56,4 +56,8 @@ hello-world                    latest          feb5d9fea6a5   6 months ago   13.
 prakhar1989/static-site        latest          f01030e1dcf3   6 years ago    134MB
 
 
-
+4. Crear archivo Dockerfile en la raíz de este proyecto
+5. Agregarle la imagen base:
+FROM php:8.0.12-apache
+6. Setear directorio de trabajo:
+WORKDIR /usr/src/app
