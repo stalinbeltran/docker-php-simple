@@ -83,3 +83,12 @@ C:\desarrollo\docker-curriculum\flask-app>docker build -t sbeltran2006/phpsimple
  => => exporting layers                                                                                            0.0s
  => => writing image sha256:25d692d6c07a313738b41fc9341382e5369613b2f2db6df629c9acedc2bda7a4                       0.0s
  => => naming to docker.io/sbeltran2006/phpsimple                                                                  0.0s
+
+8. Agregar a Dockerfile la copia de archivos php:
+COPY . .
+9. Probar la creación de imagen:
+docker build -t sbeltran2006/phpsimple .
+
+
+
+
