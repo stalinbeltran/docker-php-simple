@@ -99,3 +99,27 @@ docker run -it sbeltran2006/phpsimple sh
 docker run -d --name phpsimple --rm sbeltran2006/phpsimple
 (se crea container, pero no es accesible desde el browser)
 
+13. Abrimos puerto 80 en Dockerfile:
+EXPOSE 80
+14. Probamos a ejecutar container, mapeando puerto 5000 al puerto 80 del container:
+docker run -d --name phpsimple --rm -p 5000:80 sbeltran2006/phpsimple
+15. Verificamos servidor en browser. Al ingresar a http://localhost:5000/ obtenemos:
+********************************
+Forbidden
+
+You don't have permission to access this resource.
+Apache/2.4.51 (Debian) Server at localhost Port 5000
+********************************
+
+16. Al ingresar a http://localhost:5000/index.php obtenemos:
+
+********************************
+Not Found
+
+The requested URL was not found on this server.
+Apache/2.4.51 (Debian) Server at localhost Port 5000
+********************************
+
+17. Revisamos contenido del container:
+docker run -it --name phpsimple --rm sbeltran2006/phpsimple sh
+(contenido php se copió a carpeta default ls /usr/src/app )
