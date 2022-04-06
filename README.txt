@@ -94,4 +94,4 @@ docker build -t sbeltran2006/phpsimple .
 docker run -it sbeltran2006/phpsimple sh
 (hallé que el contenido no es el correcto. Directorio actual equivocado)
 
-
+11. Al cambiar en CMD al directorio para este proyecto, se corrige el problema.
