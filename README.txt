@@ -134,6 +134,15 @@ docker build -t sbeltran2006/phpsimple .
 docker run -it --rm --name phpsimple sbeltran2006/phpsimple sh
 (contenido aparece en la carpeta correcta)
 
+21. Creamos container 
+docker run -d --rm --name phpsimple -p 5000:80 sbeltran2006/phpsimple
+22. Al probar en el browser con url: 
+http://localhost:5000/
+obtenemos:
+hola todos 
+(que es la salida esperada, funciona el contenedor)
+
+
 ls src/app
 ls /var/www/html
 
