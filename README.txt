@@ -123,3 +123,22 @@ Apache/2.4.51 (Debian) Server at localhost Port 5000
 17. Revisamos contenido del container:
 docker run -it --name phpsimple --rm sbeltran2006/phpsimple sh
 (contenido php se copió a carpeta default ls /usr/src/app )
+
+18. Corregimos path de copia de archivos php a la imagen:
+COPY . /var/www/html
+en vez de: COPY . .
+
+19. Regeneramos imagen:
+docker build -t sbeltran2006/phpsimple .
+20. Revisamos contenido de imagen:
+docker run -it --rm --name phpsimple sbeltran2006/phpsimple sh
+(contenido aparece en la carpeta correcta)
+
+ls src/app
+ls /var/www/html
+
+
+
+
+
+
