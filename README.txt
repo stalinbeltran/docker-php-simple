@@ -153,6 +153,10 @@ obtenemos:
 hola todos 
 (que es la salida esperada, funciona el contenedor)
 
+23. Tratamos de crear un bind mount, pero no funciona:
+docker run -d --rm --name phpsimple -p 5000:80 --mount type=bind,source="$(pwd)",target=/var/www/html,readonly sbeltran2006/phpsimple
+Error: 
+docker: Error response from daemon: invalid mount config for type "bind": invalid mount path: '$(pwd)' mount path must be absolute.
 
 
 
