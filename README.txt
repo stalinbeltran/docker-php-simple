@@ -1,6 +1,7 @@
 
 
 Pasos para implementar este "sistema" en Docker:
+
 1. Verificamos las imágenes existentes:
 C:\desarrollo\docker-curriculum\flask-app>docker images
 REPOSITORY                     TAG         IMAGE ID       CREATED        SIZE
@@ -57,10 +58,13 @@ prakhar1989/static-site        latest          f01030e1dcf3   6 years ago    134
 
 
 4. Crear archivo Dockerfile en la raíz de este proyecto
+
 5. Agregarle la imagen base:
 FROM php:8.0.12-apache
+
 6. Setear directorio de trabajo:
 WORKDIR /usr/src/app
+
 7. Probar creación de imagen empleando Dockerfile:
 docker build -t sbeltran2006/phpsimple .
 
@@ -86,6 +90,7 @@ C:\desarrollo\docker-curriculum\flask-app>docker build -t sbeltran2006/phpsimple
 
 8. Agregar a Dockerfile la copia de archivos php:
 COPY . .
+
 9. Probar la creación de imagen:
 docker build -t sbeltran2006/phpsimple .
 (funciona)
@@ -95,14 +100,17 @@ docker run -it sbeltran2006/phpsimple sh
 (hallé que el contenido no es el correcto. Directorio actual equivocado)
 
 11. Al cambiar en CMD al directorio para este proyecto, se corrige el problema.
+
 12. Probamos a crear el container, y probamos accesar desde el browser:
 docker run -d --name phpsimple --rm sbeltran2006/phpsimple
 (se crea container, pero no es accesible desde el browser)
 
 13. Abrimos puerto 80 en Dockerfile:
 EXPOSE 80
+
 14. Probamos a ejecutar container, mapeando puerto 5000 al puerto 80 del container:
 docker run -d --name phpsimple --rm -p 5000:80 sbeltran2006/phpsimple
+
 15. Verificamos servidor en browser. Al ingresar a http://localhost:5000/ obtenemos:
 ********************************
 Forbidden
@@ -130,12 +138,15 @@ en vez de: COPY . .
 
 19. Regeneramos imagen:
 docker build -t sbeltran2006/phpsimple .
+
 20. Revisamos contenido de imagen:
 docker run -it --rm --name phpsimple sbeltran2006/phpsimple sh
+ls /var/www/html
 (contenido aparece en la carpeta correcta)
 
 21. Creamos container 
 docker run -d --rm --name phpsimple -p 5000:80 sbeltran2006/phpsimple
+
 22. Al probar en el browser con url: 
 http://localhost:5000/
 obtenemos:
@@ -143,8 +154,7 @@ hola todos
 (que es la salida esperada, funciona el contenedor)
 
 
-ls src/app
-ls /var/www/html
+
 
 
 
