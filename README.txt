@@ -158,7 +158,9 @@ docker run -d --rm --name phpsimple -p 5000:80 --mount type=bind,source="$(pwd)"
 Error: 
 docker: Error response from daemon: invalid mount config for type "bind": invalid mount path: '$(pwd)' mount path must be absolute.
 
-
+24. El problema es el comando para obtener directorio actual en Windows:
+docker run -d --rm --name phpsimple -p 5000:80 --mount type=bind,source=%cd%,target=/var/www/html,readonly sbeltran2006/phpsimple
+Funciona, y podemos cambiar el código fuente, y los cambios se reflejan en el contenedor al instante.
 
 
 
