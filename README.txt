@@ -162,7 +162,21 @@ docker: Error response from daemon: invalid mount config for type "bind": invali
 docker run -d --rm --name phpsimple -p 5000:80 --mount type=bind,source=%cd%,target=/var/www/html,readonly sbeltran2006/phpsimple
 Funciona, y podemos cambiar el código fuente, y los cambios se reflejan en el contenedor al instante.
 
+25. Crear archivo docker-compose.yml, empleando datos del Dockerfile:
+ version: "3.7"
 
+ services:
+   app:
+     image: php:8.0.12-apache
+     ports:
+       - 5000:80
+     working_dir: /usr/src/app
+     volumes:
+       - ./:/var/www/html
+
+26. Probamos a crear el contenedor usando:
+docker-compose up -d
+(funciona, y muestra al instante cambios realizados en el código)
 
 
 
