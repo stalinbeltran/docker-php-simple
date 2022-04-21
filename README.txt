@@ -198,10 +198,11 @@ C:\desarrollo\pruebasDocker\phpsimple>docker-compose up -d
 Creating network "phpsimple_default" with the default driver
 Creating phpsimple_app_1 ... done
 
-si no se está ejecutando el contenedor, y obtenemos:
+si no se está ejecutando el contenedor,
+y obtenemos:
 C:\desarrollo\pruebasDocker\phpsimple>docker-compose up -d
 Recreating phpsimple_app_1 ... done
 
-si contenedor ya existe.
+si contenedor ya existe (se está ejecutando)
 
 
