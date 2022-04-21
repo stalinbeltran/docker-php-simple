@@ -178,6 +178,30 @@ Funciona, y podemos cambiar el código fuente, y los cambios se reflejan en el c
 docker-compose up -d
 (funciona, y muestra al instante cambios realizados en el código)
 
+27. Agregamos la opción build al archivo docker-compose.yml, para que se reconstruya la imagen al crear el contenedor:
+ version: "3.7"
 
+ services:
+   app:
+     image: php:8.0.12-apache
+     ports:
+       - 5000:80
+     working_dir: /usr/src/app
+     volumes:
+       - ./:/var/www/html
+     build: .
+
+28. Al crear el contenedor con:
+docker-compose up -d
+obtenemos:
+C:\desarrollo\pruebasDocker\phpsimple>docker-compose up -d
+Creating network "phpsimple_default" with the default driver
+Creating phpsimple_app_1 ... done
+
+si no se está ejecutando el contenedor, y obtenemos:
+C:\desarrollo\pruebasDocker\phpsimple>docker-compose up -d
+Recreating phpsimple_app_1 ... done
+
+si contenedor ya existe.
 
 

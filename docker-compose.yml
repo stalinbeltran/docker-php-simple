@@ -8,3 +8,4 @@
      working_dir: /usr/src/app
      volumes:
        - ./:/var/www/html
+     build: .
