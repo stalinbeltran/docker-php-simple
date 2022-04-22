@@ -262,3 +262,16 @@ cfa11f06a213: Mounted from library/php
 e1bbcf243d0e: Mounted from library/php
 latest: digest: sha256:79cb139247b2139b6e84edd47f0f11ad0e17d1b945accd59f83fd848de351e39 size: 3451
 
+32. En https://labs.play-with-docker.com, probamos a ejecutar proyecto usando docker-compose, pero no funciona:
+docker-compose up -d
+Error: can´t find any configuration file in this directory or any parent. Are you in the right directory?
+
+33. Probamos a ejecutarlo de la manera tradicional:
+docker run -d --rm --name phpsimple -p 5000:80 sbeltran2006/phpsimple
+(funciona, pero Play with Docker no permite copiar salida)
+
+Al abrir página en puerto 5000 en Play with Docker, obtenemos:
+hola todos 
+que no es la salida esperada (pues el código cambió). Esto indica que los pasos anteriores no re-crearon la imagen.
+
+
