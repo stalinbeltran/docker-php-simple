@@ -205,4 +205,60 @@ Recreating phpsimple_app_1 ... done
 
 si contenedor ya existe (se está ejecutando)
 
+29. Se quiere subir contenedor a Docker Hub. Para esto nos logueamos:
+docker login -u sbeltran2006
+
+30. Revisamos que la imagen que queremos subir exista:
+docker image ls
+
+C:\desarrollo\pruebasDocker\phpsimple>docker image ls
+REPOSITORY                     TAG             IMAGE ID       CREATED        SIZE
+sbeltran2006/phpsimple         latest          ebec8ab7d4d6   2 weeks ago    472MB  ***** esta es la imagen que deseamos subir *****
+<none>                         <none>          b114e479bcaa   2 weeks ago    472MB
+<none>                         <none>          a464ee6df0a3   2 weeks ago    472MB
+sbeltran2006/catnip            latest          25d692d6c07a   2 weeks ago    931MB
+<none>                         <none>          68ca6c967f3c   2 weeks ago    931MB
+getting-started                latest          33ced2f05da3   2 weeks ago    179MB
+<none>                         <none>          19d24d3c33c9   2 weeks ago    179MB
+<none>                         <none>          f786d53fce52   3 weeks ago    452MB
+mysql                          5.7             05311a87aeb4   5 weeks ago    450MB
+ubuntu                         latest          ff0fea8310f3   5 weeks ago    72.8MB
+ubuntu                         18.04           b67d6ac264e4   5 weeks ago    63.2MB
+busybox                        latest          2fb6fc2d97e1   5 weeks ago    1.24MB
+empezando                      latest          dfabe86d4174   6 weeks ago    401MB
+sbeltran2006/empezando2        v1.1.0          dfabe86d4174   6 weeks ago    401MB
+sbeltran2006/getting-started   latest          dfabe86d4174   6 weeks ago    401MB
+empezando2                     v1.1.0          dfabe86d4174   6 weeks ago    401MB
+<none>                         <none>          1727d01b5778   6 weeks ago    401MB
+node                           12-alpine       1b156b4c3ee8   2 months ago   91MB
+docker101tutorial              latest          6b15ae3e878d   2 months ago   28.8MB
+quay.io/keycloak/keycloak      16.1.1          011a708d97bf   2 months ago   759MB
+alpine/git                     latest          c6b70534b534   5 months ago   27.4MB
+nicolaka/netshoot              latest          f4c8dceca780   5 months ago   432MB
+php                            8.0.12-apache   4dddd776d2b7   5 months ago   472MB
+hello-world                    latest          feb5d9fea6a5   7 months ago   13.3kB
+prakhar1989/static-site        latest          f01030e1dcf3   6 years ago    134MB
+
+31. Subimos imagen al repositorio:
+docker push sbeltran2006/phpsimple
+
+C:\desarrollo\pruebasDocker\phpsimple>docker push sbeltran2006/phpsimple
+Using default tag: latest
+The push refers to repository [docker.io/sbeltran2006/phpsimple]
+a4140bb59f0a: Pushed
+4be644658cc9: Pushed
+7b5eb093b035: Mounted from library/php
+3d86bd5a0419: Mounted from library/php
+67713fca8afe: Mounted from library/php
+8e85e636e3ec: Mounted from library/php
+09e526f92ecf: Mounted from library/php
+54fb4943fe5f: Mounted from library/php
+17398fc120fa: Mounted from library/php
+cfa11f06a213: Mounted from library/php
+8f477d20e632: Mounted from library/php
+658dc28b7c93: Mounted from library/php
+89a3f58688e1: Mounted from library/php
+3af749400b4a: Mounted from library/php
+e1bbcf243d0e: Mounted from library/php
+latest: digest: sha256:79cb139247b2139b6e84edd47f0f11ad0e17d1b945accd59f83fd848de351e39 size: 3451
 
