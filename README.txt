@@ -274,4 +274,20 @@ Al abrir página en puerto 5000 en Play with Docker, obtenemos:
 hola todos 
 que no es la salida esperada (pues el código cambió). Esto indica que los pasos anteriores no re-crearon la imagen.
 
+34. Procedemos a re-construir la imagen:
+docker build -t sbeltran2006/phpsimple .
+
+35. La subimos a Docker Hub:
+docker push sbeltran2006/phpsimple
+
+36. Al volver a ejecutar el comando para crear el container
+docker run -d --rm --name phpsimple -p 5000:80 sbeltran2006/phpsimple
+
+obtenemos que ya existe el contenedor (porque ya lo habíamos ejecutado antes)
+
+37. Verificamos que el contenedor ya existe:
+docker ps
+
+Al volver a ejecutar el contenedor, hallamos que no se ha actualizado. Tal vez hay que descargar la imagen de nuevo en el Play with Docker.
+
 
