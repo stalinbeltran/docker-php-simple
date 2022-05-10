@@ -538,4 +538,16 @@ hola todos con bind mount, y docker compose 5
 
 Con eso confirmamos que el contenedor se ejecuta igual en ambientes distintos.
 
+50. Al volver la imagen a su valor anterior:
+
+     image: php:8.0.12-apache
+
+observamos que ese valor no influye en si se guarda o no el código actualizado. Sin embargo, conviene usar el tag imagen 
+para darle nombre a la imagen generada
+
+
+51. Al cambiarle el valor al tag image:
+image: sbeltran2006/phpsimple22
+noto que siempre se trata de un nombre que se le da a esta imagen. No tiene nada que ver con el nombre de la imagen inicial 
+presente en el Dockerfile.
 
