@@ -300,3 +300,150 @@ docker-compose up -d
 
 obtenemos error Forbidden You don't have permission to access this resource.
 debido a que no existe el archivo index (nunca se copió, porque quitamos el mapeo del volumen)
+
+
+39. Retiramos imagen de docker-compose:
+     image: php:8.0.12-apache
+
+y ejecutamos comando:
+docker-compose up -d
+
+C:\desarrollo\pruebasDocker\phpsimple>docker-compose up -d
+Building app
+[+] Building 0.6s (8/8) FINISHED
+ => [internal] load build definition from Dockerfile                                                               0.1s
+ => => transferring dockerfile: 277B                                                                               0.0s
+ => [internal] load .dockerignore                                                                                  0.1s
+ => => transferring context: 2B                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/php:8.0.12-apache                                               0.0s
+ => [1/3] FROM docker.io/library/php:8.0.12-apache                                                                 0.0s
+ => [internal] load build context                                                                                  0.2s
+ => => transferring context: 121.13kB                                                                              0.1s
+ => CACHED [2/3] WORKDIR /usr/src/app                                                                              0.0s
+ => [3/3] COPY . /var/www/html                                                                                     0.1s
+ => exporting to image                                                                                             0.1s
+ => => exporting layers                                                                                            0.1s
+ => => writing image sha256:4cf524f6586cd6c0a23fa85790f7d3a05d3e6fa266d2f5a9abbf3b9ea02cc549                       0.0s
+ => => naming to docker.io/library/phpsimple_app                                                                   0.0s
+WARNING: Image for service app was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
+Recreating phpsimple_app_1 ... done
+
+Al probar este container en el browser hallamos que sigue funcionando como bind mount (cambios locales se reflejan inmediatamente)
+
+40. Revisamos contenido de imagen:
+docker run -it --rm --name phpsimple sbeltran2006/phpsimple sh
+
+en el shell que se abre, mostramos el contenido del archivo index.php:
+cat /var/www/html/index.php
+
+# cat /var/www/html/index.php
+<html>
+    <body>
+        <? echo "hola todos con bind mount, y docker compose"; ?>
+
+    </body>
+</html>
+
+y vemos que no tiene ninguno de los cambios recientes. Debería obtener:
+
+<? echo "hola todos con bind mount, y docker compose 4"; ?>
+
+41. Al probar el comando:
+docker-compose up --build -d
+
+que debe hacer build de la imagen, obtenemos:
+
+C:\desarrollo\pruebasDocker\phpsimple>docker-compose up --build -d
+Creating network "phpsimple_default" with the default driver
+Building app
+[+] Building 0.4s (8/8) FINISHED
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 32B                                                                                0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/php:8.0.12-apache                                               0.0s
+ => [1/3] FROM docker.io/library/php:8.0.12-apache                                                                 0.0s
+ => [internal] load build context                                                                                  0.1s
+ => => transferring context: 27.87kB                                                                               0.1s
+ => CACHED [2/3] WORKDIR /usr/src/app                                                                              0.0s
+ => [3/3] COPY . /var/www/html                                                                                     0.1s
+ => exporting to image                                                                                             0.1s
+ => => exporting layers                                                                                            0.1s
+ => => writing image sha256:433776aab465d9f2f6630c06047def5b065f9e434b9afdc8996e099c06648102                       0.0s
+ => => naming to docker.io/library/phpsimple_app                                                                   0.0s
+Creating phpsimple_app_1 ... done
+
+La línea: 
+ => [3/3] COPY . /var/www/html         
+indica que sí se realizó la copia de archivos
+
+
+42. Revisamos contenido de imagen:
+docker run -it --rm --name phpsimple sbeltran2006/phpsimple sh
+
+en el shell que se abre, mostramos el contenido del archivo index.php:
+cat /var/www/html/index.php
+
+# cat /var/www/html/index.php
+<html>
+    <body>
+        <? echo "hola todos con bind mount, y docker compose"; ?>
+
+    </body>
+</html>
+
+Vemos que el código aún no se ha actualizado. 
+Tal vez estamos revisando la imagen equivocada.
+
+Efectivamente, el nombre de la imagen es incorrecto. Al revisar las imagenes creadas usando el comando:
+docker image list
+
+obtenemos:
+
+C:\desarrollo\pruebasDocker\phpsimple>docker image list
+REPOSITORY                     TAG             IMAGE ID       CREATED          SIZE
+phpsimple_app                  latest          433776aab465   34 minutes ago   472MB
+<none>                         <none>          4cf524f6586c   44 minutes ago   472MB
+sbeltran2006/phpsimple         latest          1183216fcfc9   2 weeks ago      472MB
+sbeltran2006/phpsimple         <none>          ebec8ab7d4d6   4 weeks ago      472MB
+<none>                         <none>          b114e479bcaa   4 weeks ago      472MB
+<none>                         <none>          a464ee6df0a3   4 weeks ago      472MB
+sbeltran2006/catnip            latest          25d692d6c07a   5 weeks ago      931MB
+<none>                         <none>          68ca6c967f3c   5 weeks ago      931MB
+getting-started                latest          33ced2f05da3   5 weeks ago      179MB
+<none>                         <none>          19d24d3c33c9   5 weeks ago      179MB
+<none>                         <none>          f786d53fce52   6 weeks ago      452MB
+mysql                          5.7             05311a87aeb4   7 weeks ago      450MB
+ubuntu                         latest          ff0fea8310f3   7 weeks ago      72.8MB
+ubuntu                         18.04           b67d6ac264e4   7 weeks ago      63.2MB
+busybox                        latest          2fb6fc2d97e1   8 weeks ago      1.24MB
+empezando2                     v1.1.0          dfabe86d4174   2 months ago     401MB
+empezando                      latest          dfabe86d4174   2 months ago     401MB
+sbeltran2006/empezando2        v1.1.0          dfabe86d4174   2 months ago     401MB
+sbeltran2006/getting-started   latest          dfabe86d4174   2 months ago     401MB
+<none>                         <none>          1727d01b5778   2 months ago     401MB
+node                           12-alpine       1b156b4c3ee8   3 months ago     91MB
+docker101tutorial              latest          6b15ae3e878d   3 months ago     28.8MB
+quay.io/keycloak/keycloak      16.1.1          011a708d97bf   3 months ago     759MB
+alpine/git                     latest          c6b70534b534   5 months ago     27.4MB
+nicolaka/netshoot              latest          f4c8dceca780   5 months ago     432MB
+php                            8.0.12-apache   4dddd776d2b7   5 months ago     472MB
+hello-world                    latest          feb5d9fea6a5   7 months ago     13.3kB
+prakhar1989/static-site        latest          f01030e1dcf3   6 years ago      134MB
+
+
+Al ejecutar el comando corregido:
+docker run -it --rm --name phpsimple phpsimple_app sh
+
+obtenemos:
+C:\desarrollo\pruebasDocker\phpsimple>docker run -it --rm --name phpsimple phpsimple_app sh
+# cat /var/www/html/index.php
+<html>
+    <body>
+        <? echo "hola todos con bind mount, y docker compose 4"; ?>
+
+    </body>
+</html>
+
+donde vemos que el código sí está actualizado:
+<? echo "hola todos con bind mount, y docker compose 4"; ?>
