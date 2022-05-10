@@ -503,3 +503,24 @@ obtenemos:
 
 lo que muestra el contenido actualizado.
 
+47. El comando:
+docker inspect af0992e0a4df
+obtiene información sobre el contenedor indicado por su ID:
+
+C:\desarrollo\pruebasDocker\phpsimple>docker inspect af0992e0a4df
+[
+    {
+        "Id": "af0992e0a4df7a855c32559cc6e04823e106cb4dade94051f712268c0436d74d",
+        "Created": "2022-05-10T15:02:52.758318939Z",
+        "Path": "docker-php-entrypoint",
+        "Args": [
+            "apache2-foreground"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+
+... (salida recortada)
+
