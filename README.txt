@@ -290,4 +290,13 @@ docker ps
 
 Al volver a ejecutar el contenedor, hallamos que no se ha actualizado. Tal vez hay que descargar la imagen de nuevo en el Play with Docker.
 
+38. Al retirar de docker-compose.yml las líneas:
 
+     volumes:
+       - ./:/var/www/html
+       
+y ejecutar el contenedor usando:
+docker-compose up -d
+
+obtenemos error Forbidden You don't have permission to access this resource.
+debido a que no existe el archivo index (nunca se copió, porque quitamos el mapeo del volumen)
