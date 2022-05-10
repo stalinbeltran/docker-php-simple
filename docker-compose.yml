@@ -2,12 +2,12 @@
 
  services:
    app:
+     image: php:8.0.12-apache
      ports:
        - 5000:80
      working_dir: /usr/src/app
      volumes:
        - ./:/var/www/html
      build: .
-     image: sbeltran2006/phpsimple
 
      
