@@ -447,3 +447,59 @@ C:\desarrollo\pruebasDocker\phpsimple>docker run -it --rm --name phpsimple phpsi
 
 donde vemos que el código sí está actualizado:
 <? echo "hola todos con bind mount, y docker compose 4"; ?>
+
+Puesto que el nombre de la imagen no era el esperado, eso nos lleva a revisar si hay forma de indicar el nombre de la imagen requerido
+
+43. Agregamos la línea:
+
+     image: sbeltran2006/phpsimple
+al docker-compose.yml
+
+44. Al ejecutar el comando:
+docker-compose up -d
+notamos que la imagen no se ha actualizado (aparece creada hace 55 min)
+
+45. Al ejecutar el comando:
+docker-compose up --build -d
+notamos que sí se realiza la regeneració de la imagen:
+
+C:\desarrollo\pruebasDocker\phpsimple>docker-compose up --build -d
+Building app
+[+] Building 0.5s (8/8) FINISHED
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 32B                                                                                0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/php:8.0.12-apache                                               0.0s
+ => [1/3] FROM docker.io/library/php:8.0.12-apache                                                                 0.0s
+ => [internal] load build context                                                                                  0.1s
+ => => transferring context: 52.68kB                                                                               0.1s
+ => CACHED [2/3] WORKDIR /usr/src/app                                                                              0.0s
+ => [3/3] COPY . /var/www/html                                                                                     0.1s
+ => exporting to image                                                                                             0.1s
+ => => exporting layers                                                                                            0.1s
+ => => writing image sha256:e961aa14be1e8164b0831f1cd09ea619808c195d2a18733fc2c46b3ec6b97f2c                       0.0s
+ => => naming to docker.io/sbeltran2006/phpsimple                                                                  0.0s
+Recreating phpsimple_app_1 ... done
+
+C:\desarrollo\pruebasDocker\phpsimple>docker image list
+REPOSITORY                     TAG             IMAGE ID       CREATED              SIZE
+sbeltran2006/phpsimple         latest          e961aa14be1e   About a minute ago   472MB
+phpsimple_app                  latest          433776aab465   57 minutes ago       472MB
+
+46. Al revisar el contenido de la imagen:
+docker run -it --rm --name phpsimple sbeltran2006/phpsimple sh
+cat /var/www/html/index.php
+
+obtenemos:
+
+# cat /var/www/html/index.php
+<html>
+    <body>
+        <? echo "hola todos con bind mount, y docker compose 5"; ?>
+
+    </body>
+</html>
+
+lo que muestra el contenido actualizado.
+

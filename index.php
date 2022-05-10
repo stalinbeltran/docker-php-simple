@@ -1,6 +1,6 @@
 <html>
     <body>
-        <? echo "hola todos con bind mount, y docker compose 4"; ?>
+        <? echo "hola todos con bind mount, y docker compose 5"; ?>
         
     </body>
 </html>
