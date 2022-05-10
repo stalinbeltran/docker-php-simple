@@ -551,3 +551,14 @@ image: sbeltran2006/phpsimple22
 noto que siempre se trata de un nombre que se le da a esta imagen. No tiene nada que ver con el nombre de la imagen inicial 
 presente en el Dockerfile.
 
+52. Al comentar la línea:
+COPY . /var/www/html
+en el Dockerfile, y haciendo:
+docker-compose up --build -d
+y revisando el contenedor:
+docker run -it sbeltran2006/phpsimple sh
+verificamos que el código no se ha actualizado. Esto indica que el Dockerfile influye en la creación de la imagen.
+docker-compose.yml no reemplaza al Dockerfile.
+
+
+

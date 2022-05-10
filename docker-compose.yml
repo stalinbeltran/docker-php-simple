@@ -8,6 +8,6 @@
      volumes:
        - ./:/var/www/html
      build: .
-     image: sbeltran2006/phpsimple22
+     image: sbeltran2006/phpsimple
 
      
