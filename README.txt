@@ -524,3 +524,18 @@ C:\desarrollo\pruebasDocker\phpsimple>docker inspect af0992e0a4df
 
 ... (salida recortada)
 
+48. Ahora nos logueamos en Docker Hub para subir la imagen recien creada:
+docker login -u sbeltran2006
+
+y subimos imagen al repositorio:
+docker push sbeltran2006/phpsimple
+
+49. En https://labs.play-with-docker.com probamos a ejecutar el contenedor:
+docker run -d --rm --name phpsimple -p 5000:80 sbeltran2006/phpsimple
+
+y al ejecutar el contenedor en el browser obtenemos la salida actualizada:
+hola todos con bind mount, y docker compose 5 
+
+Con eso confirmamos que el contenedor se ejecuta igual en ambientes distintos.
+
+
