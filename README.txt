@@ -560,5 +560,31 @@ docker run -it sbeltran2006/phpsimple sh
 verificamos que el código no se ha actualizado. Esto indica que el Dockerfile influye en la creación de la imagen.
 docker-compose.yml no reemplaza al Dockerfile.
 
+53. Comandos:
+-Get bash interactive shell for a running container (ejecutar shell en container dado):
+docker exec -it <container> bash
+
+-Crear referencia a imagen existente (crear un tag):
+docker tag sbeltran2006/phpsimple22 sbeltran2006/phpsimple33
+docker tag source target
+
+-Loguearse en Docker Hub:
+docker login -u sbeltran2006
+
+C:\desarrollo\pruebasDocker\phpsimple>docker login -u sbeltran2006
+Password:
+Login Succeeded
+
+Logging in with your password grants your terminal complete access to your account.
+For better security, log in with a limited-privilege personal access token. Learn more at https://docs.docker.com/go/access-tokens/
+
+-Eliminar un contenedor:
+docker rm 37047e7bab6d
+C:\desarrollo\pruebasDocker\phpsimple>docker rm 37047e7bab6d
+Error response from daemon: You cannot remove a running container 37047e7bab6d1cdbef57a7e16a03fa26116147a231fdc9690fe4b756b9ec1a3c. Stop the container before attempting removal or force remove
+
+Al usar -f forzamos la eliminación:
+C:\desarrollo\pruebasDocker\phpsimple>docker rm -f 37047e7bab6d
+37047e7bab6d
 
 
