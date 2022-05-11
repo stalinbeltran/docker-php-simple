@@ -655,3 +655,10 @@ sbeltran2006/phpsimple         latest          55ad6613ab41   24 hours ago   472
 sbeltran2006/phpsimple22       latest          2b0d4415beb6   24 hours ago   472MB
 sbeltran2006/phpsimple33       latest          2b0d4415beb6   24 hours ago   472MB
 
+-Realizar docker compose, que es el comando actualizado:
+docker compose up -d
+
+C:\desarrollo\pruebasDocker\phpsimple>docker compose up -d
+[+] Running 1/1
+ - Container phpsimple-app-1  Started                                                                               1.4s
+
