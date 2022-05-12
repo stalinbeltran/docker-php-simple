@@ -689,3 +689,10 @@ Hallamos que efectivamente se están ejecutando servicios distintos, basándose 
 (en este caso el puerto empleado cambia según el profile)
 
 
+55. Le damos un nombre específico al proyecto (con -p nuevoProjectName):
+docker compose -p nuevoProjectName --profile prod up -d
+C:\desarrollo\pruebasDocker\phpsimple>docker compose -p nuevoProjectName --profile prod up -d
+[+] Running 2/2
+ - Network nuevoprojectname_default   Created                                                                       0.7s
+ - Container nuevoprojectname-app2-1  Started                                                                       3.1s
+
