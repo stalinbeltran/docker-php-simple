@@ -691,8 +691,25 @@ Hallamos que efectivamente se están ejecutando servicios distintos, basándose 
 
 55. Le damos un nombre específico al proyecto (con -p nuevoProjectName):
 docker compose -p nuevoProjectName --profile prod up -d
+
 C:\desarrollo\pruebasDocker\phpsimple>docker compose -p nuevoProjectName --profile prod up -d
 [+] Running 2/2
  - Network nuevoprojectname_default   Created                                                                       0.7s
  - Container nuevoprojectname-app2-1  Started                                                                       3.1s
+
+Podemos ejecutar otro container cambiando el nombre del proyecto:
+
+C:\desarrollo\pruebasDocker\phpsimple>docker compose -p nuevoProjectName2 --profile prod up -d
+[+] Running 1/2
+ - Network nuevoprojectname2_default   Created                                                                      0.7s
+ - Container nuevoprojectname2-app2-1  Starting                                                                     0.6s
+Error response from daemon: driver failed programming external connectivity on endpoint nuevoprojectname2-app2-1 (886756775fb375be4281d3dca25fb66d27157654e0057d5e72167c7055e3b46e): Bind for 0.0.0.0:5001 failed: port is already allocated
+
+En este caso el puerto está ya ocupado, así que procedemos a usar el profile dev:
+
+C:\desarrollo\pruebasDocker\phpsimple>docker compose -p nuevoProjectName2 --profile dev up -d
+[+] Running 1/1
+ - Container nuevoprojectname2-app1-1  Started                                                                      1.8s
+
+y así tenemos el mismo proyecto ejecutándose 2 veces en el mismo host
 
