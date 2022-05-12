@@ -662,3 +662,7 @@ C:\desarrollo\pruebasDocker\phpsimple>docker compose up -d
 [+] Running 1/1
  - Container phpsimple-app-1  Started                                                                               1.4s
 
+-Tener varios archivos de configuración, aplicados uno sobre el otro:
+docker-compose -f docker-compose.yml -f production.yml up -d
+
+
