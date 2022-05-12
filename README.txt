@@ -666,7 +666,7 @@ C:\desarrollo\pruebasDocker\phpsimple>docker compose up -d
 docker-compose -f docker-compose.yml -f production.yml up -d
 
 
-54. Al tratar de usar profiles:
+54. Al tratar de usar profiles (usar el profile dev):
 docker compose --profile dev up -d
 
 C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dev up -d
@@ -680,9 +680,12 @@ C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dev up -d
 [+] Running 1/1
  - Container phpsimple-app1-1  Started
 
+usar el profile prod:
  C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile prod up -d
 [+] Running 1/1
  - Container phpsimple-app2-1  Started                                                                              1.6s
 
 Hallamos que efectivamente se están ejecutando servicios distintos, basándose en el profile indicado en CLI.
+(en este caso el puerto empleado cambia según el profile)
+
 
