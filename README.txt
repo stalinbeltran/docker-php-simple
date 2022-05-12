@@ -666,3 +666,23 @@ C:\desarrollo\pruebasDocker\phpsimple>docker compose up -d
 docker-compose -f docker-compose.yml -f production.yml up -d
 
 
+54. Al tratar de usar profiles:
+docker compose --profile dev up -d
+
+C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dev up -d
+time="2022-05-12T10:33:33-05:00" level=warning msg="Found orphan containers ([phpsimple-app-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+[+] Running 0/1
+ - Container phpsimple-app1-1  Starting                                                                             4.3s
+Error response from daemon: driver failed programming external connectivity on endpoint phpsimple-app1-1 (75ed4b32b4620f570f0e4e80e031990d038ff5f3fa0b3641c899226422c1d6c0): Bind for 0.0.0.0:5000 failed: port is already allocated
+
+Después de remover los contenedores ya existentes:
+C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dev up -d
+[+] Running 1/1
+ - Container phpsimple-app1-1  Started
+
+ C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile prod up -d
+[+] Running 1/1
+ - Container phpsimple-app2-1  Started                                                                              1.6s
+
+Hallamos que efectivamente se están ejecutando servicios distintos, basándose en el profile indicado en CLI.
+
