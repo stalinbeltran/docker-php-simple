@@ -25,6 +25,8 @@
 
    db:
      image: mariadb:10.4
+     volumnes:
+      - volumen1
      ports:
        - 3308:3306
      profiles:

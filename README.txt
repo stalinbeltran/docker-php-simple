@@ -810,5 +810,13 @@ Ahora container mariadb funciona (permanece abierto)
 59. Al crear una DB y una tabla, y al cerrar el contenedor, hallamos que no se mantiene la data.
 El contenedor es temporal (lo que puede ser útil en algunos casos, pero no en otros)
 
+60. Al agregar un volumen:
+   db:
+     image: mariadb:10.4
+     volumnes:
+      - volumen1
 
+obtenemos error:
+C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dbprueba up -d
+services.db Additional property volumnes is not allowed
 
