@@ -729,5 +729,42 @@ docker compose -p dev up -d --build
 Error: 
 yaml: line 25: did not find expected key
 
+Hallamos error (usé -p en vez de --profile):
+docker compose --profile dev up -d --build
+
+C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dev up -d --build
+[+] Running 13/13
+ - db Pulled                                                                                                       46.8s
+   - d5fd17ec1767 Pull complete                                                                                    16.4s
+   - 49b1cc1f34f7 Pull complete                                                                                    16.5s
+   - 9924a2c30493 Pull complete                                                                                    17.1s
+   - a2bb7d6219ce Pull complete                                                                                    17.6s
+   - 1eb5d2e9991e Pull complete                                                                                    17.7s
+   - 3cbaef7da880 Pull complete                                                                                    18.4s
+   - 52f39675d129 Pull complete                                                                                    18.5s
+   - c653cb741960 Pull complete                                                                                    18.6s
+   - fc5571e050f1 Pull complete                                                                                    40.7s
+   - 86fb33950cdf Pull complete                                                                                    40.8s
+   - d9282c1804e5 Pull complete                                                                                    40.9s
+   - 840d845005b8 Pull complete                                                                                    41.0s
+[+] Building 1.8s (8/8) FINISHED
+ => [internal] load build definition from Dockerfile                                                                0.0s
+ => => transferring dockerfile: 32B                                                                                 0.0s
+ => [internal] load .dockerignore                                                                                   0.0s
+ => => transferring context: 2B                                                                                     0.0s
+ => [internal] load metadata for docker.io/library/php:8.0.12-apache                                                0.0s
+ => [1/3] FROM docker.io/library/php:8.0.12-apache                                                                  0.0s
+ => [internal] load build context                                                                                   0.2s
+ => => transferring context: 138.42kB                                                                               0.2s
+ => CACHED [2/3] WORKDIR /usr/src/app                                                                               0.0s
+ => [3/3] COPY . /var/www/html                                                                                      1.2s
+ => exporting to image                                                                                              0.1s
+ => => exporting layers                                                                                             0.1s
+ => => writing image sha256:cc3597ad53a02441b293d809a48d75dfffece22182d7158a547c5c86521389ae                        0.0s
+ => => naming to docker.io/sbeltran2006/phpsimple                                                                   0.0s
+[+] Running 3/3
+ - Network phpsimple_default   Created                                                                              0.7s
+ - Container phpsimple-db-1    Started                                                                              2.0s
+ - Container phpsimple-app1-1  Started                                                                              2.3s
 
 
