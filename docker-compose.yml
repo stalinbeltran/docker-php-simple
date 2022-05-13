@@ -23,7 +23,7 @@
      profiles:
       - prod
 
-  db:
+   db:
     image: mariadb:10.4
     ports:
       - 3308:3306

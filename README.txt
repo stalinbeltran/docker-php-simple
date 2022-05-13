@@ -715,6 +715,19 @@ y así tenemos el mismo proyecto ejecutándose 2 veces en el mismo host
 
 
 56. Creamos contenedor de mysql:
+Agregamos el nuevo servicio al docker-compose:
+
+  db:
+    image: mariadb:10.4
+    ports:
+      - 3308:3306
+    profiles:
+      - dev
+y ejecutamos:
+docker compose -p dev up -d --build
 
 Error: 
 yaml: line 25: did not find expected key
+
+
+
