@@ -807,4 +807,8 @@ C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dbprueba up -d --
 Ahora container mariadb funciona (permanece abierto)
 
 
+59. Al crear una DB y una tabla, y al cerrar el contenedor, hallamos que no se mantiene la data.
+El contenedor es temporal (lo que puede ser útil en algunos casos, pero no en otros)
+
+
 
