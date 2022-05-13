@@ -1,13 +1,13 @@
 <html>
     <body>
-        <? echo "hola todos con bind mount, y docker compose 9"; ?>
+        <? echo "hola todos con bind mount, y docker compose 9<br>"; ?>
 
 <?php
 $servername = "db";
 $username = "root";
 $password = "example";
 $dbname = "dbprueba";
-$dbport = "3308";
+$dbport = "3306";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname, $dbport);
