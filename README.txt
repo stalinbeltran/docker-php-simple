@@ -666,6 +666,17 @@ C:\desarrollo\pruebasDocker\phpsimple>docker compose up -d
 docker-compose -f docker-compose.yml -f production.yml up -d
 
 
+-Listar todos los volúmenes de docker:
+docker volume ls
+
+C:\desarrollo\pruebasDocker\phpsimple>docker volume ls
+DRIVER    VOLUME NAME
+local     9c931898cdbb0f01a158ac24dbea67a149580a82dbc3cbcd6d2b75cbe18e2d7d
+local     62fd63c5d279846baf3b375e84d71c7db318ff7752f4703c65dec17c8285a808
+local     4856d96eebfca6b7bf5de861fd47bea6cb8e217bd6275ed34a0b49edf17c0d4d
+local     phpsimple_volumen1
+
+
 54. Al tratar de usar profiles (usar el profile dev):
 docker compose --profile dev up -d
 
