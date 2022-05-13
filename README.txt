@@ -797,5 +797,14 @@ Obtenemos el mismo error:
      environment:
       MARIADB_ROOT_PASSWORD: example
 
-Ahora container mariadb funciona
+Ejecutamos:
+docker compose --profile dbprueba up -d --build
+
+C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dbprueba up -d --build
+[+] Running 1/1
+ - Container phpsimple-db-1  Started
+
+Ahora container mariadb funciona (permanece abierto)
+
+
 
