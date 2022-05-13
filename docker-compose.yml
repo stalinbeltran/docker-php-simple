@@ -1,5 +1,8 @@
  version: "3.7"
 
+ volumes:
+   - volumen1:
+
  services:
    app1:
      ports:

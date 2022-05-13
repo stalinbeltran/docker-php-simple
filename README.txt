@@ -849,3 +849,21 @@ obtenemos el error:
 C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dbprueba up -d
 service "db" refers to undefined volume volumen1: invalid compose project
 
+
+63. Al agregar la definición de volumen:
+
+ version: "3.7"
+
+ volumes:
+   - volumen1:
+
+ services:
+   app1:
+     ports:
+       - 5000:80
+
+
+obtenemos error:
+C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dbprueba up -d
+volumes must be a mapping
+
