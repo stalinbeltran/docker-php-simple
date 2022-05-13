@@ -867,3 +867,20 @@ obtenemos error:
 C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dbprueba up -d
 volumes must be a mapping
 
+
+64. Al corregir la definición de volumes:
+ version: "3.7"
+
+ volumes:
+   volumen1:
+
+ services:
+   app1:
+
+obtenemos finalmente un volumen creado:
+
+C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dbprueba up -d
+[+] Running 3/3
+ - Volume "phpsimple_volumen1"            Created                                                                   0.0s
+ - Container 62712d526adb_phpsimple-db-1  Recreated                                                                 0.8s
+ - Container phpsimple-db-1               Started                                                                   1.5s
