@@ -949,3 +949,16 @@ obtenemos el mismo error:
 Warning: mysqli::__construct(): (HY000/2002): Connection refused in /var/www/html/index.php on line 13
 Connection failed: Connection refused
 
+
+68. Agregamos depends_on:
+
+   app1:
+     ports:
+       - 5000:80
+     depends_on:
+      - db
+      
+sigue el error:
+
+Warning: mysqli::__construct(): (HY000/2002): Connection refused in /var/www/html/index.php on line 13
+

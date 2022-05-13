@@ -7,6 +7,8 @@
    app1:
      ports:
        - 5000:80
+     depends_on:
+      - db
      working_dir: /usr/src/app
      volumes:
        - ./:/var/www/html
