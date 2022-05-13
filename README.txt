@@ -768,7 +768,7 @@ C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dev up -d --build
  - Container phpsimple-app1-1  Started                                                                              2.3s
 
 
-57. Cambiamos el profile de db:
+57. Cambiamos el profile de db (para que se ejecute independiente de otros contenedores):
 
      profiles:
        - dbprueba
@@ -783,4 +783,19 @@ C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dbprueba up -d --
 
 Obtenemos el mismo error:
 (contenedor aparece EXITED)
+
+
+58. Cambiamos definición de servicio db:
+
+   db:
+     image: mariadb:10.4
+     ports:
+       - 3308:3306
+     profiles:
+       - dbprueba
+     restart: always
+     environment:
+      MARIADB_ROOT_PASSWORD: example
+
+Ahora container mariadb funciona
 

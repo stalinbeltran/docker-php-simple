@@ -29,3 +29,8 @@
        - 3308:3306
      profiles:
        - dbprueba
+     restart: always
+     environment:
+      MARIADB_ROOT_PASSWORD: example
+
+      
