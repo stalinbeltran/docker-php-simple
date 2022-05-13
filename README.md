@@ -898,3 +898,25 @@ C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dbprueba up -d
 
 Al crear db y tabla, y cerrando el container varias veces, hallamos que efectivamente la data se mantiene.
 
+65. Realizamos una lectura a la DB, e instalamos extensión mysqli:
+Agregamos instalación de mysqli al Dockerfile:
+
+#abrimos puerto 80
+EXPOSE 80
+#instalamos extension mysqli
+RUN docker-php-ext-install mysqli
+
+Agregamos un profile dev a db:
+
+   db:
+   ...
+     ports:
+       - 3308:3306
+     profiles:
+       - dbprueba
+       - dev
+
+Obtenemos error:
+mysqli::__construct(): (HY000/2002): No such file or directory in /var/www/html/index.php on line 12
+
+

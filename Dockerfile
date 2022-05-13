@@ -6,3 +6,5 @@ WORKDIR /usr/src/app
 COPY . /var/www/html
 #abrimos puerto 80
 EXPOSE 80
+#instalamos extension mysqli
+RUN docker-php-ext-install mysqli
