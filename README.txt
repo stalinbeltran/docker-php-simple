@@ -884,3 +884,6 @@ C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dbprueba up -d
  - Volume "phpsimple_volumen1"            Created                                                                   0.0s
  - Container 62712d526adb_phpsimple-db-1  Recreated                                                                 0.8s
  - Container phpsimple-db-1               Started                                                                   1.5s
+
+Al crear db y tabla, y cerrando el container varias veces, hallamos que efectivamente la data se mantiene.
+
