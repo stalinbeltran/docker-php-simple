@@ -1,15 +1,16 @@
 <html>
     <body>
-        <? echo "hola todos con bind mount, y docker compose 7"; ?>
+        <? echo "hola todos con bind mount, y docker compose 8"; ?>
 
 <?php
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "root";
 $password = "example";
 $dbname = "dbprueba";
+$dbport = "3308";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname, $dbport);
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);

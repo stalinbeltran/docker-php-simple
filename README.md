@@ -920,3 +920,21 @@ Obtenemos error:
 mysqli::__construct(): (HY000/2002): No such file or directory in /var/www/html/index.php on line 12
 
 
+66. Al corregir puerto y localhost:
+<?php
+$servername = "127.0.0.1";
+$username = "root";
+$password = "example";
+$dbname = "dbprueba";
+$dbport = "3308";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname, $dbport);
+
+obtenemos el error:
+
+Warning: mysqli::__construct(): (HY000/2002): Connection refused in /var/www/html/index.php on line 13
+Connection failed: Connection refused
+
+El problema debe estar en que no estamos usando "localhost", porque estamos en un container!!
+
