@@ -713,3 +713,8 @@ C:\desarrollo\pruebasDocker\phpsimple>docker compose -p nuevoProjectName2 --prof
 
 y así tenemos el mismo proyecto ejecutándose 2 veces en el mismo host
 
+
+56. Creamos contenedor de mysql:
+
+Error: 
+yaml: line 25: did not find expected key

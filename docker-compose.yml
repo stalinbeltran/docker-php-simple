@@ -22,3 +22,10 @@
      image: sbeltran2006/phpsimple
      profiles:
       - prod
+
+  db:
+    image: mariadb:10.4
+    ports:
+      - 3308:3306
+    profiles:
+      - dev
