@@ -962,3 +962,36 @@ sigue el error:
 
 Warning: mysqli::__construct(): (HY000/2002): Connection refused in /var/www/html/index.php on line 13
 
+
+69. Al eliminar las opciones:
+     depends_on
+     container_name: db
+
+y al recompilar usando:
+docker compose --profile dev up -d --build
+
+C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dev up -d --build
+[+] Building 10.6s (9/9) FINISHED
+ => [internal] load build definition from Dockerfile                                                                0.0s
+ => => transferring dockerfile: 32B                                                                                 0.0s
+ => [internal] load .dockerignore                                                                                   0.0s
+ => => transferring context: 2B                                                                                     0.0s
+ => [internal] load metadata for docker.io/library/php:8.0.12-apache                                                0.0s
+ => [1/4] FROM docker.io/library/php:8.0.12-apache                                                                  0.0s
+ => [internal] load build context                                                                                   0.2s
+ => => transferring context: 56.74kB                                                                                0.2s
+ => CACHED [2/4] WORKDIR /usr/src/app                                                                               0.0s
+ => [3/4] COPY . /var/www/html                                                                                      0.2s
+ => [4/4] RUN docker-php-ext-install mysqli                                                                        10.0s
+ => exporting to image                                                                                              0.2s
+ => => exporting layers                                                                                             0.1s
+ => => writing image sha256:c61be3d43ff5c54f3c453948d1c9788faaaa4af77bd3bc63538a7a65d46ce975                        0.0s
+ => => naming to docker.io/sbeltran2006/phpsimple                                                                   0.0s
+[+] Running 3/3
+ - Container phpsimple-app1-1  Started                                                                              6.8s
+ - Container db                Recreated                                                                            4.7s
+ - Container phpsimple-db-1    Started
+
+ sigue funcionando, lo que indica que estas opciones no eran críticas.
+
+ 
