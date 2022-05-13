@@ -29,6 +29,7 @@
       - prod
 
    db:
+     container_name: db
      image: mariadb:10.4
      volumes:
       - volumen1:/var/lib/mysql
