@@ -28,4 +28,4 @@
      ports:
        - 3308:3306
      profiles:
-       - dev
+       - dbprueba

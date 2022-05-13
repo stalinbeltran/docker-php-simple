@@ -768,3 +768,19 @@ C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dev up -d --build
  - Container phpsimple-app1-1  Started                                                                              2.3s
 
 
+57. Cambiamos el profile de db:
+
+     profiles:
+       - dbprueba
+
+Ejecutamos:
+docker compose --profile dbprueba up -d --build
+
+C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dbprueba up -d --build
+[+] Running 2/2
+ - Network phpsimple_default  Created                                                                               0.6s
+ - Container phpsimple-db-1   Started                                                                               1.7s
+
+Obtenemos el mismo error:
+(contenedor aparece EXITED)
+
