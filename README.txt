@@ -810,6 +810,7 @@ Ahora container mariadb funciona (permanece abierto)
 59. Al crear una DB y una tabla, y al cerrar el contenedor, hallamos que no se mantiene la data.
 El contenedor es temporal (lo que puede ser útil en algunos casos, pero no en otros)
 
+
 60. Al agregar un volumen:
    db:
      image: mariadb:10.4
@@ -819,4 +820,32 @@ El contenedor es temporal (lo que puede ser útil en algunos casos, pero no en o
 obtenemos error:
 C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dbprueba up -d
 services.db Additional property volumnes is not allowed
+
+
+61. Al modificar el volumen:
+
+   db:
+     image: mariadb:10.4
+     volumes:
+      - volumen1:
+     ports:
+       - 3308:3306
+
+obtenemos error:
+C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dbprueba up -d
+services.db.volumes.0 type is required
+
+
+62. Al corregir el docker-compse.yml:
+
+   db:
+     image: mariadb:10.4
+     volumes:
+      - volumen1:/var/lib/mysql
+     ports:
+       - 3308:3306
+
+obtenemos el error:
+C:\desarrollo\pruebasDocker\phpsimple>docker compose --profile dbprueba up -d
+service "db" refers to undefined volume volumen1: invalid compose project
 
