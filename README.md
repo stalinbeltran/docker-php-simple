@@ -938,3 +938,14 @@ Connection failed: Connection refused
 
 El problema debe estar en que no estamos usando "localhost", porque estamos en un container!!
 
+
+67. Al corregir nombre del server (según servicio en docker-compose):
+
+<?php
+$servername = "db";
+$username = "root";
+
+obtenemos el mismo error:
+Warning: mysqli::__construct(): (HY000/2002): Connection refused in /var/www/html/index.php on line 13
+Connection failed: Connection refused
+

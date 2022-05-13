@@ -3,7 +3,7 @@
         <? echo "hola todos con bind mount, y docker compose 8"; ?>
 
 <?php
-$servername = "127.0.0.1";
+$servername = "db";
 $username = "root";
 $password = "example";
 $dbname = "dbprueba";
